@@ -1,7 +1,9 @@
+import { DeviceDetail } from 'src/device-detail/device-detail.entity';
 import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
+  OneToMany,
 } from 'typeorm';
 
 @Entity()
@@ -22,5 +24,8 @@ export class Device {
   groupId: string;
 
   @Column()
-  dataType: string;  
+  dataType: string; 
+  
+  @OneToMany((type) => DeviceDetail, (details) => details.device)
+  details: Device[];
 }
