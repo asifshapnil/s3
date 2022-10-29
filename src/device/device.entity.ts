@@ -4,6 +4,8 @@ import {
   PrimaryGeneratedColumn,
   Column,
   OneToMany,
+  OneToOne,
+  JoinColumn,
 } from 'typeorm';
 
 @Entity()
@@ -11,21 +13,25 @@ export class Device {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({nullable:true})
+  @Column({ nullable: true })
   deviceId: string;
 
-  @Column({nullable:true})
+  @Column({ nullable: true })
   deviceType: string;
 
-  @Column({nullable:true})
+  @Column({ nullable: true })
   deviceName: string;
 
-  @Column({nullable:true})
+  @Column({ nullable: true })
   groupId: string;
 
-  @Column({nullable:true})
-  dataType: string; 
-  
-  @OneToMany(() => DeviceDetail, (details) => details.device, { eager: true })
-  details: DeviceDetail[];
+  @Column({ nullable: true })
+  dataType: string;
+
+  @Column({ nullable: true })
+  timestamp: number;
+
+  @OneToOne(() => DeviceDetail, {cascade: true, eager: true})
+  @JoinColumn()
+  data: DeviceDetail
 }

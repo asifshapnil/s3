@@ -7,9 +7,9 @@ import { Device } from './device.entity';
 @Injectable()
 export class DeviceService extends BaseService {
   constructor(
-    @InjectRepository(Device) public BannerRepository: Repository<Device>,
+    @InjectRepository(Device) public deviceRepository: Repository<Device>,
   ) {
-    super(BannerRepository, []);
+    super(deviceRepository, ['data']);
   }
   
 }

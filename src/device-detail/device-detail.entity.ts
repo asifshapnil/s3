@@ -4,6 +4,7 @@ import {
   PrimaryGeneratedColumn,
   Column,
   ManyToOne,
+  OneToOne,
 } from 'typeorm';
 
 @Entity()
@@ -37,7 +38,4 @@ export class DeviceDetail {
 
   @Column({nullable:true})
   stateChanged: number;  
-
-  @ManyToOne(() => Device, (device) => device.details)
-  device: Device;
 }

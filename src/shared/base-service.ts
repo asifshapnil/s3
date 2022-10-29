@@ -6,7 +6,7 @@ export class BaseService {
   constructor(private _repository, private relations) {}
 
   findAll(): Promise<any[]> {
-    return this._repository.find({ relations: this.relations, order: {createdAt: 'DESC'} });
+    return this._repository.find({ relations: this.relations });
   }
 
   findOne(id: string): Promise<any> {
