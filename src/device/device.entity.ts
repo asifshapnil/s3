@@ -11,7 +11,7 @@ export class Device {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({nullable:true})
   deviceId: string;
 
   @Column({nullable:true})
@@ -20,12 +20,12 @@ export class Device {
   @Column({nullable:true})
   deviceName: string;
 
-  @Column()
+  @Column({nullable:true})
   groupId: string;
 
-  @Column()
+  @Column({nullable:true})
   dataType: string; 
   
-  @OneToMany((type) => DeviceDetail, (details) => details.device)
-  details: Device[];
+  @OneToMany(() => DeviceDetail, (details) => details.device, { eager: true })
+  details: DeviceDetail[];
 }

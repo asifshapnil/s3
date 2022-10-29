@@ -3,7 +3,6 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
-  Double,
   ManyToOne,
 } from 'typeorm';
 
@@ -13,32 +12,32 @@ export class DeviceDetail {
   id: number;
 
   @Column()
-  fullPowerMode: Boolean;
+  fullPowerMode: boolean;
 
   @Column({nullable:true})
-  activePowerControl: Boolean;
+  activePowerControl: boolean;
 
   @Column({nullable:true})
-  firmwareVersion: Double;
+  firmwareVersion: number;
 
-  @Column()
-  temperature: Double;
+  @Column({nullable:true})
+  temperature: number;
 
-  @Column()
-  humidity: Double;  
+  @Column({nullable:true})
+  humidity: number;  
 
-  @Column()
-  version: Double;  
+  @Column({nullable:true})
+  version: number;  
 
-  @Column()
-  messageType: String;  
+  @Column({nullable:true})
+  messageType: string;  
 
-  @Column()
-  occupancy: Boolean;  
+  @Column({nullable:true})
+  occupancy: boolean;  
 
-  @Column()
-  stateChanged: Number;  
+  @Column({nullable:true})
+  stateChanged: number;  
 
-  @ManyToOne((type) => Device, (device) => device.details)
+  @ManyToOne(() => Device, (device) => device.details)
   device: Device;
 }
