@@ -17,7 +17,7 @@ export interface DeviceModel {
     deviceName: string;
     groupId: string;
     dataType: string;
-    data: DeviceDetailModel[];
+    data: DeviceDetailModel;
     timestamp: number;
 }
 

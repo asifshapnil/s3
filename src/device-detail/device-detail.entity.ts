@@ -12,7 +12,7 @@ export class DeviceDetail {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({nullable:true})
   fullPowerMode: boolean;
 
   @Column({nullable:true})
